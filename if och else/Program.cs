@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
 namespace if_och_else
@@ -7,14 +8,14 @@ namespace if_och_else
     {
         static void Main(string[] args)
         {
-            int i = 0;
-            while (i <= 10)
+            int i = 1;
+            while (i >= 0)
             {
                 i++;
                 //välja uppgift
                 Console.WriteLine("");
                 Console.WriteLine("Vilken uppgift vill du göra: ");
-                Console.WriteLine(" 1 (Mönsterdjup) \n 2 (Brickan) \n 3 (Största Talet) \n 4 (Delbarhet med 7) \n 5 (Namn och Ålder) \n 6 (Svar på två Nummer) \n 7 (Celcius till Fahrenheit) \n 8 (Omgretsen på en Cirkel) \n 9 (räkna till 100) \n 10 (Nedräkning från 20) \n 11 (Ojämna tal till 50) \n 99 (guess numbergame) \n 100 (Blackjack (inprogress))");
+                Console.WriteLine(" 1 (Mönsterdjup) \n 2 (Brickan) \n 3 (Största Talet) \n 4 (Delbarhet med 7) \n 5 (Namn och Ålder) \n 6 (Svar på två Nummer) \n 7 (Celcius till Fahrenheit) \n 8 (Omgretsen på en Cirkel) \n 9 (räkna till 100) \n 10 (Nedräkning från 20) \n 11 (Ojämna tal till 50) \n 12 (Start, Stop) \n 13 (TryItOut Namn Nummer)  \n 99 (guess numbergame) \n 100 (Blackjack (inprogress)) \n 1000 (Nevena Loopar uppgift) \n 0 (Exit Program)");
                 Console.Write("Välj en av dessa Uppgifterna: ");
                 int uppgift = int.Parse(Console.ReadLine());
                 Console.WriteLine("");
@@ -206,6 +207,130 @@ namespace if_och_else
                     }
                 }
 
+                //Try it Out Namn och Nummer
+                else if (uppgift == 13)
+                {
+                    double firstNumber, secondNumber;
+                    string userName;
+
+                    Console.WriteLine("Enter your name:");
+
+                    userName = Console.ReadLine();
+                    Console.WriteLine($"Welcome {userName}!");
+                    
+                    Console.WriteLine("Now give me a number:");
+                    firstNumber = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("Now give me another number:");
+                    secondNumber = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"The sum of {firstNumber} and {secondNumber} is " +
+                    $"{firstNumber + secondNumber}.");
+
+                    Console.WriteLine($"The result of subtracting {secondNumber} from " +
+                    $"{firstNumber} is {firstNumber - secondNumber}.");
+
+                    Console.WriteLine($"The product of {firstNumber} and {secondNumber} " +
+                    $"is {firstNumber * secondNumber}.");
+
+                    Console.WriteLine($"The result of dividing {firstNumber} by " +
+                    $"{secondNumber} is {firstNumber / secondNumber}.");
+
+                    Console.WriteLine($"The remainder after dividing {firstNumber} by " +
+                    $"{secondNumber} is {firstNumber % secondNumber}.");
+
+                    Console.ReadKey();
+
+                }
+
+
+                //Nevena Genomgång
+                else if (uppgift == 1000)
+                {
+                    int r = 0;
+                    while (r <= 10)
+                    {
+                        r++;
+                        //välja uppgift
+                        Console.WriteLine("");
+                        Console.WriteLine("Vilken uppgift vill du göra: ");
+                        Console.WriteLine(" 1 (Win.Fack) \n 2 (Pyramid) \n 3 (Gubbe) \n 4 (DamVm Fråga) \n 0 (Return to previous list");
+                        Console.Write("Välj en av dessa Uppgifterna: ");
+                        int uppgift1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("");
+
+                        //Allt Krascha
+                        if (uppgift1 == 1)
+                        {
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkBlue;
+                            Console.Clear();
+
+                            Console.WriteLine("Blue Screen of Death :)");
+                            Console.WriteLine("You are Screwed!");
+                        }
+
+                        else if (uppgift1 == 2)
+                        {
+                            Console.WriteLine("         /\\");
+                            Console.WriteLine("        /  \\");
+                            Console.WriteLine("       /    \\");
+                            Console.WriteLine("      /      \\");
+                            Console.WriteLine("     /        \\");
+                            Console.WriteLine("    /          \\");
+                            Console.WriteLine("   /            \\");
+                            Console.WriteLine("  /              \\");
+                            Console.WriteLine(" /                \\");
+                            Console.WriteLine("/__________________\\");
+
+                        }
+
+                        else if (uppgift1 == 3)
+                        {
+                            Console.WriteLine("   O");
+                            Console.WriteLine("  /|\\");
+                            Console.WriteLine("   |");
+                            Console.WriteLine("  / \\");
+                            
+                        }
+
+                        else if (uppgift1 == 4)
+                        {
+                            Console.WriteLine("Vilka Fan Dam VM 2015: ");    
+                            string svar = Console.ReadLine().ToLower();
+
+                            if (svar == "usa")
+                            {
+                                Console.WriteLine("Rätt");
+                            }
+
+                            else if (svar == "Usa")
+                            {
+                                Console.WriteLine("Rätt");    
+                            }
+                            else if (svar == "USA")
+                            {
+                                Console.WriteLine("Rätt");
+                            }
+                            else
+                            {
+                                Console.WriteLine("FEL, Din Sexist!");
+                            }
+                        }
+
+                        else if (uppgift1 == 0)
+                        {
+                            break;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("wowowo, sakta i backarna så många uppgifter har jag ej");
+                        }
+
+                    }
+
+                }
 
 
                 //guessgame
@@ -229,7 +354,7 @@ namespace if_och_else
 
                         else if (guess != number2guess)
                         {
-                            Console.WriteLine(guess + " was the wrong answer");
+                            Console.WriteLine(guess + " was the wrong answer ");
                         }
 
                     }
@@ -270,10 +395,16 @@ namespace if_och_else
 
                         else
                         {
-
+                            Console.WriteLine("Dealer Wins");
                         }
                     }
 
+                }
+
+
+                 else if (uppgift == 0)
+                {
+                    break;
                 }
 
                 else
